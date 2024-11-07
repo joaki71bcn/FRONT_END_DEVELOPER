@@ -6,17 +6,21 @@
   <title>ANUNCIOS</title>
 
   <style>
-    /* .contenedor{
+    .contenedor{
       width: 900px;
-      height: 600px;
-      background-color: salmon; */
+      height: 750px;
+      /* background-color: salmon; */
+      display: flex;
+      margin-top: 10px;
+      gap: 10px;
+      padding: 0 10px 0 10px;
 
     }
     .prensa{
       text-align: left;
-      background-color: gray !important;
+      background-color: gray ;
       margin: 0;
-      padding-left: 5px;
+      padding-left: 2px;
     
 
     }
@@ -25,8 +29,51 @@
       background-color: #DDDDDD;
       margin: 0 0 0 0;
       padding: 0 10px 5px 10px;
-      border-bottom: 10px dotted black;
+      border-bottom: 3px dashed #BBBBBB;
+    }
+    .caja{
+        width: 150px;
+        /* height: 400px; */
+        /* background-color: cyan; */
+        padding: 0 10px 0 10px;
+        /* margin: 5px 5px 5px 5px; */
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        border-left: 3px dashed black;
+        border-right: 3px dashed black;
+        
 
+        
+    }
+    .caja h3{
+      background-color: #EEEEEE;
+      text-align: center;
+      padding: 10px 0 10px 0;
+      margin: 0;
+      /* font-size: 110% */
+    }
+    .subcaja{
+      border: 1px solid black;
+      margin-top: 5px;
+    }
+
+    .subcaja h4{
+      padding: 0 10px 0 10px;
+      background-color: #BBBBBB ;
+      text-align: right;
+      border: 1px solid black;
+      color: white;
+      text-align: right;
+      padding: 0 10px 0 10px;
+      margin: 0;
+      
+    }
+    .subcaja p{
+      /* text-align: center; */
+      justify-content: left;
+      padding: 0 10px 0 10px;
+      overflow: auto;
     }
 
   </style>
@@ -38,7 +85,82 @@
   <h2 class="anuncios">Anuncios por palabras</h2>
 
   <div class="contenedor">
-    
+    <div class="caja">
+        <h3>COMPRA/VENTA</h3>
+        <div class="subcaja">
+            <h4>ref CV001</h4>
+            <p>Vndo máquina d scribir qu l falta una tcla</p>
+        </div>
+        <div class="subcaja">
+          <h4>ref CV002</h4>
+          <p>Vendo Cristo, marca INRI.</p>
+        </div>
+        <div class="subcaja">
+          <h4>ref CV003</h4>
+          <p>Vendo audífono, no escucho ofertas</p>
+        </div>        
+        <div class="subcaja">
+          <h4>ref CV004</h4>
+          <p>Joven necesitado vende madre usada en perfectas condiciones. Excelente cocinera, buen trato y servicio de despertador.
+          No hacer caso de las lágrimas.</p>
+        </div>
+        <div class="subcaja">
+          <h4>ref CV005</h4>
+          <p>Vendo coche, con cuatro puertas, con excelentes vistas a la calle</p>
+        </div>
+    </div>
+
+    <div class="caja">
+      <h3>CAMBIO</h3>
+      <div class="subcaja">
+        <h4>ref CA001</h4>
+        <p>Cambio pastor alemán por uno que hable español.</p>
+      </div>
+      <div class="subcaja">
+        <h4>ref CA002</h4>
+        <p>Cambio lindo perro Doberman por mano ortopédica</p>
+      </div>
+    </div>
+
+    <div class="caja">
+        <h3>VARIOS</h3>
+        <div class="subcaja">
+          <h4>ref VA001</h4>
+          <p>Si su suegra es una joyita... nosotros tenemos el mejor estuche. Funeraria Pérez</p>
+        </div>
+        <div class="subcaja">
+          <h4>ref VA002</h4>
+          <p>Divorcios en 24 horas. Satisfacción garantizada o le devolvemos a su cónyuge.
+          </p>
+        </div>
+        <div class="subcaja">
+          <h4>ref VA003</h4>
+          <p>Maga. Encantamientos. Magia blanca, negra y otros colores.</p>
+        </div><div class="subcaja">
+          <h4>ref VA004</h4>
+          <p>Se pintan casas a domicilio.</p>
+        </div><div class="subcaja">
+          <h4>ref VA005</h4>
+          <p>Coleccionista. Colecciono colecciones, no importa de qué.</p>
+        </div>
+    </div>
+
+    <div class="caja">
+        <h3>EMPLEO</h3>
+        <div class="subcaja">
+          <h4>ref EM001</h4>
+          <p>Desempleado con muchos años de experiencia, se ofrece para estadísticas.</p>
+        </div>
+        <div class="subcaja">
+          <h4>ref EM002</h4>
+          <p>Buscopersonaltecnicoparaarreglarmibarraespaciadora.
+</p>
+        </div><div class="subcaja">
+          <h4>ref EM003</h4>
+          <p>Gane dinero trabajando en casa y en sus horas libres. Envíenos al apdo. de correos 253 una foto y 900 euros en sellos.
+          Tendrá noticias.</p>
+        </div>
+    </div>
 
   </div>
 
