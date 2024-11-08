@@ -2,5 +2,25 @@
   width: 960px;
   background-color: rgb(219, 215, 250);
   margin: auto; 
+  height: 700px;
+
+}
+
+.cabecera{
+  background-color: white;
+  width: 960px;
+  display: flex;
+  justify-content:space-between;
+  
+}
+
+.enlaces{
+  
+  
+}
+
+.enlaces a{
+  color: black;
+  padding: 50px 10px 10px 10px;
 
 }
