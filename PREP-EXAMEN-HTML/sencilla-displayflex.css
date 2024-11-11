@@ -1,0 +1,45 @@
+body{
+  border-top: 1px solid black;
+  margin: 20px;
+}
+
+.container{
+  width: 900px;
+  height: 600px;
+  /* background-color: bisque; */
+  margin: auto;
+  display: flex;
+  padding-top: 10px;
+}
+.col-vert{
+  width: 200px;
+  /* background-color: yellow; */
+  height: 430px;
+  border-right: 1px solid black;
+
+}
+
+.col-vert img{
+  /* border-bottom: 1px solid black; */
+  padding-top: 10px;
+
+}
+.col-vert ul{
+  border-top: 1px solid black;
+  list-style: none;
+  padding-top: 20px;
+}
+
+.col-letra{
+  height: 700px;
+  width: 700px;
+  /* background-color: chocolate; */
+  padding-left: 20px;
+
+}
+.col-letra h1{
+
+}
+.col-letra p{
+  justify-content: left;
+}

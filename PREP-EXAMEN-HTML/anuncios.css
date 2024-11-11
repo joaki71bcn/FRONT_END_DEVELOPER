@@ -1,0 +1,64 @@
+.contenedor{
+  width: 1500px;
+  height: 1000px;
+  /* background-color: bisque;   */
+  
+}
+.prensa{
+  background-color: rgb(187, 187, 187);
+  margin:0;
+  padding:  5px 10px 5px 10px;
+  
+
+}
+.anuncios{
+  background-color: #DDDDDD ;
+  text-align: right;
+  margin: 0;
+  padding: 5px 10px 5px 10px;
+  border-bottom: 3px dashed #BBBBBB;
+
+}
+
+.medio{
+  width: 1000px;
+  height: 850px;
+  /* background-color: aqua; */
+  display: flex;
+  margin-top: 20px;
+  gap: 15px;
+}
+.colum{
+  width: 180px;
+  border-left: 1px dashed black;
+  border-right: 1px dashed black;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  
+}
+.colum h3{
+  text-align: center;
+  background-color: #EEEEEE;
+  margin: 10px;
+  padding: 10px 0 10px 0;
+
+}
+.caja{
+  border: 1px solid black;
+  margin: 5px 10px 5px 10px;
+
+}
+.caja h4{
+  text-align: right;
+  color: white;
+  background-color: #BBBBBB;
+  padding-right: 10px;
+  margin: 0px;
+}
+.caja p{
+  justify-content: left;
+  overflow: auto;
+  padding: 0 10px 0 10px;
+}

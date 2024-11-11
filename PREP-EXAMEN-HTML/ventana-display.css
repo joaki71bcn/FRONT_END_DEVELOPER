@@ -1,0 +1,43 @@
+.contenedor{
+  width: 800px;
+  height: 600px;
+  background-color: pink;
+  margin: auto;
+  margin-top: 20px;
+  display:flex;
+}
+
+.lateral-iz{
+  width: 50px;
+  height: 600px;
+  background-color: #FF0000;
+  
+}
+
+.medio{
+  width: 700px;
+  height: 600px;
+  background-color: rgb(200, 255, 0);
+}
+
+.medio-alto{
+  width: 700px;
+  height: 50px;
+  background-color: #FFA500;
+}
+.medio-medio{
+  width: 700px;
+  height: 500px;
+  background-color: blue;
+}
+.medio-bajo{
+  width: 700px;
+  height: 50px;
+  background-color: purple;
+}
+.lateral-der{
+  width: 50px;
+  height: 600px;
+  background-color: green;
+  
+}
