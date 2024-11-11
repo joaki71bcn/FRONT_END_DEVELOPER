@@ -1,8 +1,13 @@
+body{
+  background-color: #EAE9E9;
+}
 .contenedor{
   width: 960px;
-  background-color: rgb(219, 215, 250);
+  background-color: white;
   margin: auto; 
-  height: 700px;
+  height: 900px;
+  border-radius: 10px;
+  overflow: hidden;
 
 }
 
@@ -14,7 +19,76 @@
   
 }
 
-.cabecera a{
+.cabecera ul {
+  list-style: none;
+  display:flex;
   color: black;
-  padding: 50px 10px 10px 10px;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.cabecera ul a{
+  text-decoration: none;
+  padding:15px;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+}
+.cabecera ul a:hover{
+  background-color: #B51F24 ;
+}
+.activo{
+  background-color: #B51F24;
+}
+
+.cuerpo{
+  background-color: white;
+}
+.cuerpo h1{
+  text-align: center;
+  margin: 20px 0 20px 0;
+
+}
+.inferior{
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.inferior h2{
+  text-align: left;
+  margin: 20px 0 20px 0;
+  color: #A52A2A;
+}
+
+.inferior p{
+  width: 265px;
+  display: flex;
+  text-align: justify;
+}
+.pie{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pie p a{
+  padding-left: 40px;
+  text-decoration: none;
+  color:black;
+  box-sizing: border-box;
+}
+.pie ul{
+  list-style: none;
+  display: flex;
+  color: black;
+  gap: 10px;
+  margin:30px 0 30px 0;
+}
+.pie ul a {
+  text-decoration: none;
+  padding: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+}
+.pie ul a:hover {
+  background-color: #B51F24;
 }
