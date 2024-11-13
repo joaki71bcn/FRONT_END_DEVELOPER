@@ -1,0 +1,50 @@
+.container{
+  width: 1400px;
+  /* height: 1200px; */
+  /* background-color: salmon; */
+  margin: auto;
+
+}
+.cabecera{
+  width: 900px;
+  margin: auto;
+  margin-top: 85px;
+  /* background-color: blueviolet; */
+}
+.cabecera img{
+  width: 400px;
+  height: auto;
+  margin-left: 250px;
+}
+.cabecera h1{
+  text-align: center;
+  padding-top: 20px;
+}
+.central{
+  width: 1400px;
+  display:flex;
+  justify-content: space-between;
+  /* background-color: beige; */
+  /* gap: 200px; */
+  }
+.central li{
+  /* padding-left: 20px; */
+  margin-left: 40px;
+}
+.parrafos{
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  padding-right: 40px;
+  text-align: left;
+  
+}
+.pie{
+  margin-left: 80px;
+  display: flex;
+  gap: 45px
+  
+}
+
+
