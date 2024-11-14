@@ -1,0 +1,49 @@
+
+
+{
+	"Write Phaser scene code": {
+		"prefix": "phaserscene",
+		"body": [
+			"class ${1:${TM_FILENAME_BASE}} extends Phaser.Scene {\n\tconstructor() {\n\t\tsuper(\"${TM_FILENAME_BASE}\");\n\t}\n\n\tcreate() {}\n\n\tupdate() {}\n}\n\nexport default $1;",
+		],
+		"description": "Crear una escena de Phaser"
+	},
+	"console.log": {
+		"prefix": "clg",
+		"body": [
+			"console.log($1)",
+		],
+		"description": "Log output to console"
+	},
+	"Axios Create": {
+		"prefix": "axioscreate",
+		"body": [
+			"import axios from \"axios\";\nexport const i = axios.create({baseURL: \"https://rickandmortyapi.com/api\",});",
+		],
+		"description": "Log output to console"
+	},
+}
+
+{
+	"Write Phaser scene code": {
+		"prefix": "phaserscene",
+		"body": [
+			"class ${1:${TM_FILENAME_BASE}} extends Phaser.Scene {\n\tconstructor() {\n\t\tsuper(\"${TM_FILENAME_BASE}\");\n\t}\n\n\tcreate() {}\n\n\tupdate() {}\n}\n\nexport default $1;",
+		],
+		"description": "Crear una escena de Phaser"
+	},
+	"console.log": {
+		"prefix": "clg",
+		"body": [
+			"console.log($1)",
+		],
+		"description": "Log output to console"
+	},
+	"Axios Create": {
+		"prefix": "axioscreate",
+		"body": [
+			"import axios from \"axios\";\nexport const i = axios.create({baseURL: \"https://rickandmortyapi.com/api\",});",
+		],
+		"description": "Log output to console"
+	},
+}
