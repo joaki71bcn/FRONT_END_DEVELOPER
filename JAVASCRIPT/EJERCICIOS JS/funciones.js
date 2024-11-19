@@ -105,15 +105,15 @@
 
 // ejercicios 2 - 7
 //  Añade el operador de igual para que la siguiente función devuelva Equal cuando val sea 12.
-function testEqual(val) {
-	// if (val) { // Cambia esta línea
-  if (val === 12) { // Cambia esta línea
-		return "Equal";
-	}
-	return "Not Equal";
-};
-const x3 = testEqual(12);
-console.log(x3);
+// function testEqual(val) {
+// 	// if (val) { // Cambia esta línea
+//   if (val === 12) { // Cambia esta línea
+// 		return "Equal";
+// 	}
+// 	return "Not Equal";
+// };
+// const x3 = testEqual(12);
+// console.log(x3);
 
 // ejercicio 2 - 8
 // Combina las sentencias if en un único bloque de tipo if/else.
@@ -127,17 +127,17 @@ console.log(x3);
 // 	}
 // 	return result;
 // }
-function testElse(val) {
-	let result = "";
-	if (val <= 5) {
-		result = "Menor o igual a 5";
-	} else {
-		result = "Mayor que 5";
-	}
-	return result;
-};
-const x4=testElse(7);
-console.log(x4);
+// function testElse(val) {
+// 	let result = "";
+// 	if (val <= 5) {
+// 		result = "Menor o igual a 5";
+// 	} else {
+// 		result = "Mayor que 5";
+// 	}
+// 	return result;
+// };
+// const x4=testElse(7);
+// console.log(x4);
 
 // ejercicios 2 - 9
 //  Combina las sentencias en un único bloque de tipo if/elseif/else.
@@ -154,50 +154,51 @@ console.log(x4);
 // 	}
 // 	return result;
 // }
-function testElse(val) {
-	let result = "";
-	if (val > 5) {
-		result = "Bigger than 5";
-	}else	if (val < 5) {
-	result = "Smaller than 5";
-	} else {
-		result = "Equal to 5";
-	}
-	return result;
-};
-const x5 = testElse(5);
-console.log(x5);
+// function testElse(val) {
+// 	let result = "";
+// 	if (val > 5) {
+// 		result = "Bigger than 5";
+// 	}else	if (val < 5) {
+// 	result = "Smaller than 5";
+// 	} else {
+// 		result = "Equal to 5";
+// 	}
+// 	return result;
+// };
+// const x5 = testElse(5);
+// console.log(x5);
 
 // ejercicios 2 - 10
 // ¿Qué valor de x se mostrará por consola?
-function hola(nombre) {
-	return "Hi " + nombre + "!";
-}
-const h1 = hola("Selva");
-const h2 = hola("Pola");
-const x6 = h1 +  " " + h2;
-console.log(x6); // ¿Qué valor de x se mostrará en la consola?
+// function hola(nombre) {
+// 	return "Hi " + nombre + "!";
+// }
+// const h1 = hola("Selva");
+// const h2 = hola("Pola");
+// const x6 = h1 +  " " + h2;
+// console.log(x6); // ¿Qué valor de x se mostrará en la consola?
 
 // ejercicios 2 - 11
 // ¿Qué valor de x se mostrará por consola?
-function duplica(nombre) {
-	return nombre + " and " + nombre;
-}
-const x7 = duplica("Roy");
-console.log(x7); // ¿Qué valor de x se mostrará en la consola?
+// function duplica(nombre) {
+// 	return nombre + " and " + nombre;
+// }
+// const x7 = duplica("Roy");
+// console.log(x7); // ¿Qué valor de x se mostrará en la consola?
 
 // ejercicios 2 - 12
 // Completar la función para que se cumplan las siguientes condiciones:
-function testSize(num) {
-	// return "Change Me"; // Quitar esta línea y poner en su lugar la lógica pertinente (bloques de tipo if/else)
-  if (num < 5) return "Tiny";
-  else if (num < 10)  return "Small";
-  else if (num < 15) return "Medium";
-  else if (num < 20) return "Large";
-  else return "Huge";
-};
-const x8 = testSize(30);
-console.log(x8);
+// function testSize(num) {
+// 	// return "Change Me"; // Quitar esta línea y poner en su lugar la lógica pertinente (bloques de tipo if/else)
+//   if (num < 5) return "Tiny";
+//   else if (num < 10)  return "Small";
+//   else if (num < 15) return "Medium";
+//   else if (num < 20) return "Large";
+//   else return "Huge";
+// };
+// const x8 = testSize(30);
+// console.log(x8);
+
 
 // ejercicios 2 - 13
 // Escribe una función nand que tome como parámetros de entrada dos valores booleanos. Si ambos valores son true, debería devolver false. En cualquier otro caso, debería devolver true.
@@ -209,13 +210,14 @@ console.log(x8);
 // nand(false, true);
 // nand(false, false);
 // deberían devolver true.
-function nand (boo1, boo2){
-  // if (boo1 && boo2) return false
-  // else return true
-  return boo1 && boo2 ? false : true;
-};
-const x9 = nand (false, true);
-console.log(x9);
+// function nand (boo1, boo2){
+//   // if (boo1 && boo2) return false
+//   // else return true
+//   // return boo1 && boo2 ? false : true;
+//   return !(boo1 && boo2);
+// };
+// const x9 = nand (false, true);
+// console.log(x9);
 
 // ejercicios 2 - 14
 // Escribe una función nor que tome como parámetros de entrada dos valores booleanos. Si alguno de los dos es false, debería devolver true. En cualquier otro caso, el valor devuelto debería ser false.
@@ -227,13 +229,14 @@ console.log(x9);
 // nor(false, true);
 // nor(true, true);
 // deberían devolver false.
-function nor (boo1, boo2){
-  // if (boo1 === false && boo2 === false) return true
-  // else return false;
-  return !boo1 && !boo2 ?  true :  false;
-};
-const x14 = nor (true, false);
-console.log(x14);
+// function nor (boo1, boo2){
+//   // if (boo1 === false && boo2 === false) return true
+//   // else return false;
+//   return !boo1 && !boo2 ?  true :  false;
+// };
+// const x14 = nor (true, false);
+// console.log(x14);
+// console.log(nor(false, false))
 
 // ejercicios 2 - 15
 // Escribe una función xor que tome dos valores booleanos. Si ambos valores son diferentes, debería devolver true. Si ambos valores son iguales, debería devolver false.
@@ -245,10 +248,15 @@ console.log(x14);
 // xor(true, true);
 // xor(false, false);
 // deberían devolver false.
-function xor(boo1, boo2){
-  // if ((boo1 === true && boo2 === false) || (boo1 === false && boo2 === true)) return true
-  // else return false;
-  return boo1 != boo2 ? true : false;
-};
-const x15 = xor(true,true );
-console.log(x15);
+// function xor(boo1, boo2){
+//   // if ((boo1 === true && boo2 === false) || (boo1 === false && boo2 === true)) return true
+//   // else return false;
+//   return boo1 != boo2 ?  true :  false;
+// };
+// // const x15 = xor(true,true );
+// // console.log(x15);
+// console.log(xor(false, true));
+
+
+
+
