@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM3</title>
+</head>
+<body>
+<!-- Hacer un formulario para solicitar el envío de una caja de cartón. En el formulario podremos especificar las
+características de la caja. -->
+<label for="name">Nombre del cliente:</label><br>
+<input type="text" id="name"><br><br><br>
+
+<label for="material">Material de la caja</label><br>
+<select id="material">
+  <option value="plastico">Plástico</option>
+  <option value="carton">Cartón</option>
+  <option value="madera">Madera</option>
+</select><br><br><br>
+
+<label for="dimensiones">Seleccione unas dimensiones para la caja:</label><br>
+<input type="radio" name="rButton" id="diminutas" value="diminutas"><label for="diminutas">Diminutas</label><br>
+<input type="radio" name="rButton" id="medianas" value="medianas"><label for="medianas">Medianas</label><br>
+<input type="radio" name="rButton" id="grandes" value="grandes"><label for="grandes">Grandes</label><br><br><br>
+
+<label for="comentarios">Comentarios:</label><br>
+<textarea id="comentarios" rows="10" cols="20"></textarea><br><br>
+
+<button>Enviar</button><br><br>
+
+<output></output>
+
+
+  <script>
+    const sendForm = () => {
+      const cuadroTexto =  document.querySelector('#name').value;
+      const desplegable = document.querySelector('#material').value;
+      const radioButton = document.querySelector('[type=radio]:checked').value;
+      const coment = document.querySelector('#comentarios').value;
+
+      const frase = `${cuadroTexto} ha pedido una caja de ${desplegable} con unas dimensiones ${radioButton}. ${coment}`;
+
+      document.querySelector('output').value = frase;
+
+
+
+    console.log(cuadroTexto);
+    console.log(desplegable);
+    console.log(radioButton);
+    }
+
+    document.querySelector('button').addEventListener('click', sendForm);
+
+  </script>
+  
+</body>
+</html>

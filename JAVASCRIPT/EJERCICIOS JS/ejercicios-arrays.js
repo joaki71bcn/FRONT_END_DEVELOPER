@@ -14,7 +14,6 @@ const getSmallerPeople = () => {
   const r = characters.map(element => ({...element, height: element.height - 10 }));
   console.log('getSmallerPeople(): ' , r);
 };
-// *************   DUDA - por que ha podido restar 10 cuando eran strings?
 
 // ejercicio 3
 // Crear un método llamado sumaDePeso() que utilizando reduce, calcule la suma del peso de los personajes de starwars.
@@ -71,7 +70,8 @@ const collectByName2 = (characterName) => {
   };
   console.log('collectedByName2(): ', collectedCharacters2);
   };
-// *** DUDA - EN EL CONSOLELOG LSANE TODOS LOS ELEMENTOS EN LA PRIMERA LLAMADA A FUNCION
+
+// *** DUDA - EN EL CONSOLELOG SALEN TODOS LOS ELEMENTOS EN LA PRIMERA LLAMADA A FUNCION
 
 // ejercicio 10
 // Crear un método llamado mediaDeAltura2() que utilizando reduce, calcule altura media de los personajes que hay en el array collectedCharacters2.
@@ -83,9 +83,9 @@ const mediaDeAltura2 = () => {
 // ejercicio 11
 // Crear un método llamado removeByName2(charactersName) que utilizando filter, obtenga a partir del array collectedCharacters2 los personajes cuyo nombre no coincide con el parámetro recibido.
 const removeByName2 = (charactersName) => {
-  const r = collectedCharacters2.filter(element => element.name !== charactersName);
+  collectedCharacters2 = collectedCharacters2.filter(element => element.name !== charactersName);
   // collectedCharacters2 = collectedCharacters2.filter(element => element.name !== charactersName);
-  console.log("removeByName2(): " , charactersName, ...r);
+  console.log("removeByName2(): " , charactersName, collectedCharacters2);
 };
  
 
