@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cambiar imagen indef</title>
+</head>
+<body>
+  <div style="width:250px; background-color: pink; cursor: pointer;">
+    <!-- <img src="img/PinguLinux_Ying_Yang.png" alt="yinyang" id="yinyang" style="max-width: 100%" > -->
+    <img src="img/PinguLinux_Yoda.jpg" alt="yoda" id="yoda" style="max-width: 100%" >
+  </div>
+
+  <script>
+    // const imgYing = document.querySelector('#yinyang');
+    const img = document.querySelector('#yoda');
+    let cambioImagen = false;
+    
+    const cambiarImagen = () => {
+      cambioImagen = !cambioImagen;
+      console.log(cambioImagen);
+      // cambioImagen ? img.setAttribute("src", "img/PinguLinux_Ying_Yang.png") : img.setAttribute("src", "img/PinguLinux_Yoda.jpg");
+      // img.src = cambioImagen ? "img/PinguLinux_Ying_Yang.png" : "img/PinguLinux_Yoda.jpg";
+      img.setAttribute("src", cambioImagen ? "img/PinguLinux_Ying_Yang.png" : "img/PinguLinux_Yoda.jpg");
+    };
+    img.addEventListener('click', cambiarImagen);
+  </script>
+</body>
+</html>
+
+<!-- con toogle -->
+<!-- <!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>cambio de imagen</title>
+
+  <style>
+    .contenido {
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      height: 100vh;
+    }
+
+    img {
+      max-width: 200px;
+
+      max-height: 200px;
+      content: url("../foto.png");
+    }
+
+    .imagen1 {
+      content: url("../foto2.png") !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contenerdor">
+    <img class="imagen1" alt="" />
+
+    <button>Cambia foto</button>
+  </div>
+
+  <script>
+    const button = document.querySelector("button");
+
+    const img = document.querySelector("img");
+
+    button.addEventListener("click", () => {
+      img.classList.toggle("imagen1");
+    });
+  </script>
+</body>
+
+</html> -->

@@ -1,0 +1,13 @@
+.cuadro-rojo{
+  margin-top: 100px;
+  margin-left: 100px;
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}
+.cuadro-amarillo{
+  width: 200px;
+  height: 100px;
+  margin-left: 100px;
+  background-color: yellow;
+}

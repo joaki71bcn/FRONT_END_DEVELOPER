@@ -1,0 +1,30 @@
+.container{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  
+}
+.botones{
+  display: flex;
+  gap: 5px;
+  margin-left: 20px;
+}
+output{
+  width: 100px;
+  height: 15px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-top: 10px;
+}
+label{
+  margin-top: 10px;
+}
+.small{
+  width: 20px;
+  margin-top: 10px;
+}
+.botones-container{
+  display: flex;
+  align-items: center;
+}

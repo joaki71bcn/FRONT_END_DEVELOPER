@@ -1,0 +1,19 @@
+.container{
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+
+}
+output{
+  height: 15px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-top: 10px;
+}
+label{
+  margin-top: 10px;
+}
+button{
+  width: 70px;
+}

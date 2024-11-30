@@ -1,0 +1,75 @@
+.container-fluid{
+  background-image: url(imatges/bg.gif);
+  padding-top: 10px;
+}
+.container{
+  width: 965px;
+  margin: auto;
+  background-color: white;
+  min-height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+.menu{
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+}
+.menu li{
+  margin-top: 10px;
+}
+.menu a{
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+.menu a:hover{
+  background-color: red;
+}
+.texto{
+  text-align: center;
+}
+.container-cols{
+  display:flex;
+  gap: 40px;
+  justify-content: center;
+}
+.cols{
+  width: 265px;
+  text-align: justify;
+}
+.footer{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+.menu2{
+  display: flex;
+    gap: 10px;
+    list-style-type: none;
+}
+
+.menu2 a {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.menu2 a:hover {
+  background-color: red;
+}
+.link{
+  margin-left: 40px;
+  text-decoration: none;
+  color: black;
+  margin-top: 15px;
+
+}
+
+

@@ -1,0 +1,30 @@
+<!-- Al pulsar el botón de calcular, recorrer con un bucle forEach los tres inputs presentes en una página HTML y mostrar su
+suma dentro de un div. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" style="margin-left: 10px"><input type="text" style="margin-left: 10px"><input type="text" style="margin-left: 10px">
+  <button>Calcular</button><br>
+  <output></output>
+
+<script>
+  const salida = document.querySelector('output');
+  // let acc = 0;
+  const calcular = () => {
+      // document.querySelectorAll('input').forEach(elem => acc += Number(elem.value));
+      const resultado = Array.from(document.querySelectorAll('input')).reduce((acc, elem) => acc + Number(elem.value), 0);
+    
+      salida.value = resultado;
+  };
+  document.querySelector('button').addEventListener('click', calcular);
+</script>
+<!-- DUDA PABLO, HACERLO CON REDUCE -->
+
+
+</body>
+</html>

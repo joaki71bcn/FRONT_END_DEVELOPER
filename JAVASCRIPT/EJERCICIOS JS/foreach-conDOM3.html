@@ -1,0 +1,16 @@
+
+<div style="width: 600px"><button>Pulsar</button></div>
+<div style="width: 600px"><button>Pulsar</button></div>
+<div style="width: 600px"><button>Pulsar</button></div>
+
+<script>
+  const pintaRed = (boton, index) => {
+    console.log('test');
+    console.log(index)
+    boton.closest('div').style.backgroundColor = 'red';
+  };
+
+  document.querySelectorAll('button').forEach((boton, index) => {
+    boton.addEventListener('click',() => pintaRed(boton, index))
+  } );
+</script>

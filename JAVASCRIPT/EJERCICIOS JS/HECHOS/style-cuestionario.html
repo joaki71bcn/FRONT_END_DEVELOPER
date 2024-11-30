@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>style-cuestionario</title>
+</head>
+<body>
+<p>Cuales de los siguientes lenguajes son orientados a objetos? <span id="l0">Java</span>,VB6, <span id="l1">C++</span>, <span id="l2">C#</span>, Cobol</p><br>
+<button>Ver respuestas</button>
+
+<script>
+const pintaStyle = () => {
+  document.querySelector('#l0').style.backgroundColor = "red";
+  document.querySelector('#l1').style.backgroundColor = "red";
+  document.querySelector('#l2').style.backgroundColor = "red";
+
+}
+
+document.querySelector('button').addEventListener('click', pintaStyle);
+
+</script>
+  
+</body>
+</html>

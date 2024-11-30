@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cambiar color body</title>
+
+</head>
+<body>
+  <div class="contenedor" style="width: 200px; height: 100px; border: 1px solid black;">
+    <select id="colores">
+      <option value="-1">Selecciona un color</option>
+      <option value="green">Verde</option>
+      <option value="red">Rojo</option>
+      <option value="blue">Azul</option>
+      <option value="pink">Rosa</option>
+    </select>
+</div>
+    <script>
+      const pintaBody = () => { 
+        const color = document.querySelector('#colores').value;
+        const bodys = document.querySelector('body');
+        console.log(color);
+        // if(color === "verde"){
+        //   bodys.style.backgroundColor = 'green';
+        // }else if(color === 'rojo'){
+        //   bodys.style.backgroundColor = 'red';
+        // }else if(color === 'azul'){
+        //   bodys.style.backgroundColor = 'blue';
+        // }else if(color === 'rosa'){
+        //   bodys.style.backgroundColor = 'pink';
+        // }
+        bodys.style.backgroundColor = color;
+      };
+
+    document.querySelector('#colores').addEventListener('change', pintaBody);
+    </script>
+
+</body>
+</html>

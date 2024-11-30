@@ -1,0 +1,25 @@
+<!-- Marcar todas las respuestas correctas con el mismo class y mostrarlas en color rojo cuando pulsemos el botón de ver -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foreach-conDOM1</title>
+  </head>
+  <body>
+
+    <p>¿Cuales de los siguiente lenguajes son orientados a objetos?: <span>Java</span>, VB6, <span>C++</span>, C , <span>C#</span>, Cobol ?</p>
+    <button>Ver soluciones</button>
+
+    <script>
+      const colorea = () => {
+      document.querySelectorAll("span").forEach((elem) => elem.style.backgroundColor = 'red');
+      };
+
+      document.querySelector('button').addEventListener('click', colorea);
+    </script>
+
+
+    
+  </body>
+  </html>
