@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .container{
+      display: flex;
+      width: 850px;
+      background-color: beige;
+      flex-wrap: wrap;
+      gap: 30px
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
+    .box{
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+    }
+    .naranja{
+      background-color: #F77754;
+    }
+    .azul{
+      background-color: #537D91;
+    }
+    .gris{
+      background-color: #6D757D;
+    }
+    
+
+  </style>
+
+  <a href="#todos">Todos</a>
+  <a href="#azul">Azul</a>
+  <a href="#naranja">Naranja</a>
+  <a href="#gris">Gris</a>
+
+  <div class="container">
+    <div class="box azul"></div>
+    <div class="box gris"></div>
+    <div class="box naranja"></div>
+    <div class="box naranja"></div>
+    <div class="box azul"></div>
+    <div class="box naranja"></div>
+    <div class="box naranja"></div>
+    <div class="box azul"></div>
+    <div class="box gris"></div>
+  </div>
+
+<script>
+  const filtro = (enlace) => {
+    let color = "";
+    let arrayCajasColor = [];
+    // console.log(enlace.textContent)
+    color = enlace.getAttribute('href').slice(1);
+    // console.log(color);
+    cajas.forEach(caja => {
+      if(caja.classList.contains(color)){
+        arrayCajasColor.push(caja);
+        console.log(caja);
+        caja.style.display = "block"
+      }else if(color === 'todos'){
+        caja.style.display = "block"
+      }   
+      else {
+        caja.style.display = "none";
+      }
+    })
+  }
+
+  
+  const cajas = Array.from(document.querySelectorAll('.box'));
+  // console.log(cajas);
+  const enlaces = Array.from(document.querySelectorAll('a'));
+  enlaces.forEach(enlace => enlace.addEventListener('click', () => filtro(enlace)))
+</script>
+
+
+
+  
+</body>
+</html>
+
+
+

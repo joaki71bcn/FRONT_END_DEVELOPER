@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cuestionario DOM</title>
+</head>
+<body>
+  <div style="width: 400px;">
+  <label for="pregunta1">Que superheroe es mas fuerte?</label><br><br>
+  <div><input type="radio" id="batman" value="batman" name="rButton1"><label for="batman">Batman</label></div><br>
+  <div><input type="radio" id="superman" value="superman" name="rButton1"><label for="superman">Superman</label></div><br><br>
+
+  <label for="pregunta2">En que consiste el sentido aractnico de spiderman?</label><br><br>
+  <div><input type="radio" id="aranas" value="aranas" name="rButton2"><label for="aranas">Puede detectar cuando hay arañas cerca</label></div><br>
+  <div><input type="radio" name="rButton2" id="peligro"  value="peligro"><label for="peligro">Puede detectar cuando hay un peligro cerca</label></div><br><br>
+
+  <label for="pregunta3">Cual es el verdadero nombre de spidreman?</label><br><br>
+  <div><input type="radio" name="rButton3" id="peter" value="peter"><label for="peter">Peter Parker</label></div><br>
+  <div><input type="radio" name="rButton3" id="bruce" value="bruce"><label for="bruce">Bruce Wayne</label></div><br><br>
+  <button>Comprobar Preguntas</button>
+
+  </div>
+
+  <script>
+    const respuestasCorrectas = {
+      pregunta0: 'superman',
+      pregunta1: 'peligro',
+      pregunta2: 'peter',
+    };
+    console.log(respuestasCorrectas);
+
+    const comprobarPreguntas = () => {
+      const respuestas = Array.from(document.querySelectorAll('input[type=radio]:checked')).map(obj => obj.value);
+      console.log(respuestas)
+      const radioBotones = Array.from(document.querySelectorAll('input[type=radio]:checked'));
+      console.log(radioBotones)
+      
+      for(i=0; i < respuestas.length; i++){
+        if(respuestas[i] === respuestasCorrectas[`pregunta${i}`]){
+          radioBotones[i].closest('div').style.backgroundColor = 'green';
+        } else radioBotones[i].closest('div').style.backgroundColor = 'red';
+      }
+    }
+    document.querySelector('button').addEventListener('click', comprobarPreguntas);
+
+
+  </script>
+
+  
+</body>
+</html>

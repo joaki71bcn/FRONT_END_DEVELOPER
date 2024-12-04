@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom6 carta presentacion</title>
+</head>
+<body>
+
+  <label for="">Motivos</label><br>
+  <input type="radio" name="rButton0" value="anos" id="anos"><label for="anos">Cuento con varios años de experiencia muy
+    sólida como profesional por lo cual me creo capacitad@ para asumir las
+    responsabilidades del puesto que ustedes anuncian.</label><br>
+  <input type="radio" name="rButton0" value="profesional" id="profesional"><label for="profesional">En relación al anuncio
+    publicado donde solicitaban un profesional para su empresa, les presento mi candidatura.
+  </label><br>
+  <input type="radio" name="rButton0" value="dia" id="dia"><label for="dia">El pasado día del mes corriente, se publicó una
+    oferta de trabajo en la que se hacía constar que necesitaban cubrir un
+    puesto de trabajo.
+  </label><br><br>
+
+  <label for="">Medallas</label><br>
+  <input type="radio" name="rButton1" value="supera" id="supera"><label for="supera">Como he reseñado en el historial adjunto, aunque solo cuento años de experiencia, confío en mi afán de de superación
+  para llegar a poseer un dominio completo de la profesión. Creo contar con las aptitudes necesarias para poder aportar
+  beneficios muy positivos a su organización.</label><br>
+  <input type="radio" name="rButton1" value="capaz" id="capaz"><label for="capaz">Debido a mis cualidades personales y mi experiencia, me considero capacitado para desempeñar ese trabajo.</label><br>
+  <input type="radio" name="rButton1" value="adapto" id="adapto"><label for="adapto">Me adapto con facilidad al trabajo en equipo y baso mi actuación `profesional en una relación duradera y de confianza
+  con la empresa.</label><br><br>
+
+  <label for="">Objetivo</label><br>
+  <input type="radio" name="rButton2" value="pregunta" id="pregunta"><label for="pregunta">Agradecería la oportunidad de poder presentarme ante ustedes para contestar cualquier pregunta y ampliar lo resumido en
+  mi historial.
+</label><br>
+  <input type="radio" name="rButton2" value="dejar" id="dejar"><label for="dejar">Les agradecería me dejasen formar parte del proceso de selección.
+</label><br>
+  <input type="radio" name="rButton2" value="cuenta" id="cuenta"><label for="cuenta">Por todo ello espero que tenga en cuenta mi candidatura ante cualquier necesidad futura se ponga en contacto conmigo.
+</label><br><br>
+
+<label for="">Despedida</label><br>
+<input type="radio" name="rButton" value="cordial" id="cordial"><label for="cordial">Un cordial saludo.
+</label><br>
+<input type="radio" name="rButton" value="noticias" id="noticias"><label for="noticias">En espera de sus noticias y sin otro particular.
+</label><br>
+<input type="radio" name="rButton" value="atento" id="atento"><label for="atento">Muy atentamente.
+</label><br><br><br><br>
+
+<output></output>
+
+  <script>
+    const montarCarta = () => {
+      out.value = "";
+      let botonesValues = [];
+      let labelEncontrado = "";
+
+      // botonesPulsados = Array.from(document.querySelectorAll('input[type=radio]:checked'));
+      // // console.log(botonesPulsados);
+      // botonesValues = botonesPulsados.map(elem => elem.value);
+
+       botonesValues = Array.from(document.querySelectorAll('input[type=radio]:checked')).map(elem => elem.value);
+      // console.log(botonesPulsados);
+
+      console.log(botonesValues);
+
+      botonesValues.forEach(values => {
+       labelEncontrado = labels.find((lab) => lab.getAttribute('for') === values);
+      //  console.log(labelEncontrado)
+       console.log(labelEncontrado.textContent);
+          out.innerHTML += labelEncontrado.textContent + '<br>' + '<br>' ;
+        });
+    };
+
+
+    let out = document.querySelector('output');
+
+    const labels = Array.from(document.querySelectorAll('label'));
+    
+
+    const botones = Array.from(document.querySelectorAll('input[type=radio]')).forEach(boton => boton.addEventListener('click', () => montarCarta()));
+
+
+  </script>
+</body>
+</html>

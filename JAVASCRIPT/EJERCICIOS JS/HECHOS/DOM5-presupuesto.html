@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom5 presupuesto</title>
+</head>
+<body>
+  <div style="border: 1px solid black;width: 400px;">
+    <label for="diseno">Diseño</label><br><br>
+    <input type="radio" id="cliente" value="cliente" name="rButton1"><label for="diseno">El cliente ya me suministra el diseño</label><br><br>
+    <input type="radio" name="rButton1" id="yo" value="yo"><label for="yo">Yo me encargo del diseño</label><br><br>
+  </div>
+
+  <div style="border: 1px solid black;width: 400px;">
+    <label for="diseno">Tienda</label><br><br>
+    <input type="radio" id="nocarrito" value="nocarrito" name="rButton2"><label for="nocarrito">La pagina no incorpora un carrito de compra</label><br><br>
+    <input type="radio" name="rButton2" id="sicarrito" value="sicarrito"><label for="sicarrito">La pagina incorpora un carrito de compra</label><br><br>
+  </div>
+
+    <div style="border: 1px solid black;width: 400px;">
+      <label for="diseno">Membership</label><br><br>
+      <input type="radio" id="nosubs" value="nosubs" name="rButton3"><label for="nosubs">La pagina no permite susbscripcion</label><br><br>
+      <input type="radio" name="rButton3" id="sisubs" value="sisubs"><label for="sisubs">La pagina permite subscripcion</label><br><br>
+    </div>
+
+    <div style="width: 400px;background-color: pink;">
+      <output></output>
+    </div>
+
+
+  <script>
+    const precios = {
+      cliente: 100,
+      yo: 50,
+      nocarrito: 50,
+      sicarrito: 200,
+      nosubs: 50,
+      sisubs: 150,
+    }
+    
+
+    const presupuesto = () => {
+      let importeFinal = 0;
+      let checados = [];
+      let checadosValues = [];
+      checadosObj = Array.from(document.querySelectorAll('input[type=radio]:checked'));
+      checadosValues = checadosObj.map(obj => obj.value);
+      // console.log(checadosObj);
+      // console.log(checadosValues);
+
+      checadosValues.forEach(elem => {
+        console.log(precios[elem]);
+        if(elem in precios){
+          importeFinal += precios[elem];
+          console.log(importeFinal)
+        };
+      });
+      document.querySelector('output').value = importeFinal;
+    }
+
+     let radioBotones = Array.from(document.querySelectorAll('input[type=radio]'));
+     radioBotones.forEach((boton) => boton.addEventListener('click', () => presupuesto()));
+
+  </script>
+  
+</body>
+</html>

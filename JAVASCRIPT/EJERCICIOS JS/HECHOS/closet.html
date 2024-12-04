@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>closet</title>
+</head>
+<body>
+  <div><button>Pulsar</button></div>
+  <div><button>Pulsar</button></div>
+  <div><button>Pulsar</button></div>
+  <div><button>Pulsar</button></div>
+  <div><button>Pulsar</button></div>
+
+  <script>
+    
+    const pintarRojo = (boton, index) => {
+      console.log(boton);
+      console.log(index);
+      botones.forEach((but, indic) => { 
+        if(indic !== index) {
+          but.closest('div').style.background = 'white';
+        }else boton.closest('div').style.background = 'red'
+      });
+    };
+
+
+    let botones = Array.from(document.querySelectorAll('button'));
+    botones.forEach((boton, index) => boton.addEventListener('click', () => pintarRojo(boton, index)));
+
+</script>
+
+</body>
+</html>
+
+<!-- 
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>closest</title>
+</head>
+
+<body>
+  <div><button>Pulsa</button></div>
+  <div><button>Pulsa</button></div>
+  <div><button>Pulsa</button></div>
+  <div><button>Pulsa</button></div>
+  <div><button>Pulsa</button></div>
+
+
+  <script>
+
+    const pintarRojo = (boton, index) => {
+
+      botones.forEach((but, indice) => {
+        if (indice !== index) {
+          but.closest('div').style.background = 'white';
+        }
+      });
+
+      console.log(boton, index)
+      boton.closest('div').style.background = 'red'
+    };
+
+
+
+    let botones = Array.from(document.querySelectorAll('button'));
+
+    botones.forEach((boton, index) => boton.addEventListener('click', () => pintarRojo(boton, index)))
+
+
+  </script>
+
+</body>
+
+</html> -->

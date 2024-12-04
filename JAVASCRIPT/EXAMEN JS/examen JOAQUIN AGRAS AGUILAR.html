@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOAQUIN AGRAS</title>
+</head>
+<body>
+
+  <script>
+
+  // 3.
+  const makeMult = (n1, n2) => console.log(`El resultado de multiplicar ${n1} por ${n2} es ${n1 * n2}`);
+
+  // 4.
+  const isDivisible = (n1, n2) => {
+    if (b % a === 0) {
+      console.log(`El número ${b} es divisible por el número ${a}`)
+    } else console.log(`El número ${b} no es divisible por el número ${a}`)
+  };
+
+  // 5.
+  const makeExp = (n1) => {
+    let result = 1;
+    for (let i = 0; i < n1; i++) {
+      result = result * n1;
+    }
+    console.log(`El resultado de elevar 'a' ${a} a 'b' ${b} es ${result} `);
+
+  }
+
+  // 1. (2pt). Define dos constantes, a y b. Asígnales un valor a cada una. Muestra una traza por consola mostrando los valores de a y b.
+  // Por ejemplo, si a vale 2 y b vale 5, debería mostrarse el texto: El valor de a es 2 y el valor de b es 5.
+  const a = 5;
+  const b = 15;
+  console.log(`El valor de a es ${a} y el valor de b es ${b}`);
+
+  // 2. (2pt). Compara sus valores.
+  // • Si a es mayor que b, muestra por consola el texto: a es mayor que b.
+  // • Si b es mayor que a, muestra por consola el texto: b es mayor que a.
+  // • Si son iguales, muestra por consola el texto: son iguales.
+  if (a > b) {
+    console.log("a=" + a + " es mayor que b=" + b);
+    makeMult(a, b);
+  } else if (a < b) {
+    console.log(`b=${b} es mayor que a=${a}`);
+    isDivisible(a, b);
+  } else {
+    console.log("son iguales");
+    makeExp(a);
+  }
+
+  // 3. (2pt). En el caso de que a sea mayor que b llama a una función que recibirá como parámetro de entrada ambos números y mostrará una traza que mostrará el producto.
+  // Lo pongo antes del if para que no de error ya que he de definirlo antes de que el programa llame a la funcion
+
+  // 4. (2pt). En el caso de que b sea mayor que a llama una función que recibirá como parámetro de entrada ambos números y mostrará una traza indicando si b es divisible entre a.
+
+  // 5. (2pt). En el caso de que a y b sean iguales llama a una función que utilizando un bucle for mostrará el resultado de elevar a a b.
+
+
+  </script>
+  
+</body>
+</html>
+
