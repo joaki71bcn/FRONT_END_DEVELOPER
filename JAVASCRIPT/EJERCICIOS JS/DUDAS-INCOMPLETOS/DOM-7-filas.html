@@ -26,37 +26,44 @@
       align-items: center;
       justify-content: center;
     }
+    .r1{
+      /* background-color: aqua; */
+    }
+    .r2{
+      /* background-color: aqua; */
+    }
+    .r0{
+      /* background-color: aqua; */
+    }
    
   </style>
 
 <div class="container">
   <div class="row">
-    <div class="box"><input type="radio" id="0" name="radio"></div>
-    <div class="box">txt2</div><div class="box">txt3</div>
+    <div class="box r0 "><input type="radio" name="radio"></div><div class="box r0">txt2</div><div class="box r0">txt3</div>
   </div>
   <div class="row">
-    <div class="box"><input type="radio" id="1" name="radio"></div><div class="box">txt2</div><div class="box">txt3</div>
+    <div class="box r1"><input type="radio" name="radio"></div><div class="box r1">txt2</div><div class="box r1">txt3</div>
   </div>
   <div class="row">
-    <div class="box"><input type="radio" id="2" name="radio"></div><div class="box">txt2</div><div class="box">txt3</div>
+    <div class="box r2"><input type="radio" name="radio"></div><div class="box r2">txt2</div><div class="box r2">txt3</div>
     </div>
 </div>
 
 <script>
-  const paintRow = (boton, index) => {
-    for(let i=0; i < botones.length; i++){
-      if(Number(botones[i].getAttribute('id')) === index){
-        botones[i].style.backgroundColor = 'green';
-        
-      } else rows[i].style.backgroundColor = 'white';
-  };
-};
-
-  const rows = Array.from(document.querySelectorAll('.row'));
-  // console.log(rows);
+  const paintRow = (index) => {
+    for(let i=0; i < cajitas.length; i++){
+      console.log(cajitas[i].classList)
+    if(cajitas[i].classList.contains('r' + index)) {
+          cajitas[i].style.backgroundColor = 'green'
+    }else cajitas[i].style.backgroundColor = 'cyan'
+      }
+    }
+  const cajitas = Array.from(document.querySelectorAll('.box'));
+  console.log(cajitas)
   const botones = Array.from(document.querySelectorAll('input[type=radio]'));
   // console.log(botones);
-  botones.forEach((boton, index) => boton.addEventListener('click', () => paintRow(boton, index)))
+  botones.forEach((boton, index) => boton.addEventListener('click', () => paintRow(index)))
 </script>
   
 </body>
