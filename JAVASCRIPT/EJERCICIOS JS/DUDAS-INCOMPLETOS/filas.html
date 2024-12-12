@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filas</title>
+  <style>
+    .subcontainer{
+      /* max-width: 300px; */
+      background-color: beige;
+      display: inline-block
+    }
+    .row{
+      display: flex;
+    
+    }
+    .box{
+      padding: 20px;
+      border: 2px solid black;
+      
+    }
+
+  
+  </style>
+</head>
+
+<body>
+  
+  <div class="subcontainer">
+    <div class="row">
+      <div class="box"><input type="radio" name="radio"></div>
+      <div class="box">txt2</div>
+      <div class="box">txt3</div>
+    </div>
+    <div class="row">
+      <div class="box"><input type="radio" name="radio"></div>
+      <div class="box">txt2</div>
+      <div class="box">txt3</div>
+    </div>
+    <div class="row">
+      <div class="box"><input type="radio" name="radio"></div>
+      <div class="box">txt2</div>
+      <div class="box">txt3</div>
+    </div>
+  </div>  
+
+  <script>
+    const pintarFila = (r) => {
+      console.log(r);
+      rows.forEach(e => e.style.backgroundColor = "beige");
+      r.style.backgroundColor="red";
+    }
+
+    const rows = document.querySelectorAll('.row');
+    rows.forEach(r => r.addEventListener('click', () => pintarFila(r)));
+
+  </script>
+  
+</body>
+</html>
