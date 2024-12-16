@@ -1,3 +1,32 @@
-.bRectangulo{
-  background-color: blue;
+
+.pregunta{
+  justify-content: center;
+  margin-left: 150px;
+  /* padding-top: 50px; */
+}
+.subcontainer{
+  display:flex;
+  background-color: beige;
+  padding-left: 100px;
+}
+.flex{
+  display:flex;
+  gap: 10px;
+  margin: 10px;
+  align-items: center;
+  background-color: aqua;
+}
+/* img{
+  width: 150px;
+  height: auto;
+  padding: 100px;
+} */
+.boton{
+  height: 25px;
+}
+.paneliz{
+  background-color: burlywood;
+}
+.panelder{
+  background-color: blueviolet;
 }

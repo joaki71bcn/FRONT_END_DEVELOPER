@@ -6,9 +6,9 @@ const App8 = () => {
 
   return (
     <div>
+        
+      <button onClick={() => setCond(cond +1)}>Incrementa</button><br />
       {cond %2 === 0 ? <p>Par</p> : <p>Impar</p>}
-   
-      <button onClick={(e) => setCond(cond +1)}>Incrementa</button><br />
          {cond}
     </div>
   );
