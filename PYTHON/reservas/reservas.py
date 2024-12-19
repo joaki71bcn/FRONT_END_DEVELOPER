@@ -44,6 +44,7 @@ with sync_playwright() as p:
   target_year = "2024"
   # SELECTOR PARA LA FECHA
   date_selector = f'td[data-month="{target_month}"][data-year="{target_year}"] a:has-text("{target_day}")'
+  page.wait_for_timeout(2000)
   # CLICK EN LA FECHA SELECCIONADA
   page.locator(date_selector).click()
   page.wait_for_timeout(4000)

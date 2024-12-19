@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./ejercicios/style.css"
-import App from "./ejercicios/PROPS/App8";
+import App from "./EXAMEN/pizzeria";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     
-    <h1>libros</h1>
+    <h1>PIZZERIA</h1>
     <App/>
    
   </StrictMode>
