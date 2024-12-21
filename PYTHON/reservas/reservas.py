@@ -48,7 +48,7 @@ with sync_playwright() as p:
   print("fecha: ",target_day, target_month, target_year)
   print()
   #  HORA DEL PARTIDO "19:30-21:00"
-  target_time = "19:30-21:00"
+  target_time = "18:00-19:30"
   available_courts = []
   print("Hora: ", target_time)
   print()
@@ -69,23 +69,35 @@ with sync_playwright() as p:
   #LOCALIZA EL ELEMENTO <G> DE DE LA HORA ELEGIDA
   #TENEMOS TODAS LAS PISTAS CON LA HORA ELEGIDA
   court_slot = page.locator(f'g[time="{target_time}"]')
-  print("locator donde esta el horario ",court_slot)
+  print("LOCATOR HORARIOS - court_slot :",court_slot)
   print()
 
   # BUCLE POR CADA PISTA [350,200,50,500]
   for x in court_x_positions:
-      # BUSCA DE TODAS LAS PISTAS CON HORARIO ELEGIDO LAS 4 PRIMERAS INDOOR 
-      rect_slot = court_slot.locator(f'rect[x="{x}"]')
-      print(rect_slot, "esto es el locator de la url de la pista con x", x)
-      # DE LAS 4 PRIMERAS PISTAS NOS GUARDAMOS EL ID Y EL CAMBIO DE COLOR FILL EN VARIABLES
-      slot_id = court_slot.first.get_attribute('id')
-      fill_color = rect_slot.first.get_attribute('fill')
-      # SI ESTA LIBRE LA PISTA ENTONCES LA GUARDAMOS EN EL ARRAY
-      if slot_id and (slot_id.startswith("ocupacion") or fill_color == "white"):
-          rect_slot.nth(1).click()
-          print("pista libre", rect_slot)
+        button = court_slot.locator(f'rect[x="{x}"].buttonHora') 
+        if button.count() > 0: # Verificamos si existe al menos un elemento
+          print("LOCATOR BOTONES RESERVA POR : ",x , button)
+          button.first.click() 
+          print("PISTA LIBRE: ", button)
+          # CLICK EN VENTANA DE EMERGENTE CON POLITICA DE RESERVA CHECKBOX
+          checkbox = page.locator('input#terminos')
+          checkbox.wait_for(state='visible', timeout=3000)
+          checkbox.check()
+          # CLICK EN EL BOTON 90 MINUTOS
+          time_button = page.locator('.btnTiempo')
+          time_button.click() 
+          page.wait_for_timeout(4000)
+          # NUEVA VENTA PARA CONDICIONES LEGALES CHECKBOX
+          checkbox_book = page.locator('input#ctl00_ContentPlaceHolderContenido_CheckBoxAceptoCondicionesLegales')
+          # NO HA FUNCONADO CON WAIT_FOR, LO DEJO CON EL TIMEOUT DE ARRIBA
+          # checkbox_book.wait_for(state='visible', timeout=4000) 
+          checkbox_book.check()
+          # BOTON CARREC CONTRA SALDO
+          pay_button = page.locator('input#ctl00_ContentPlaceHolderContenido_ButtonPagoSaldo')
+          pay_button.click()
           break
-          available_courts.append((slot_id, x))
+        else: 
+           print("No hay pistas disponibles en ", x)
 
   # # CHEQUEAMOS SI HAY O NO PISTAS LIBRES.
 
