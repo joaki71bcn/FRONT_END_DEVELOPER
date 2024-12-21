@@ -13,6 +13,7 @@ const pizzas = [
 ];
 const [pizzaSeleccionada,setPizzaSeleccionada] = useState(pizzas[0]);
 const [radio, setRadio] = useState("mediano");
+const [discount, setDiscount] = useState("");
 
 const seleccionPizza = (pizza) => {
     const nuevaPizza = pizzas.find(piz => 
@@ -32,6 +33,14 @@ const calcSize = (size) => {
   }else setPrecio(pizzaSeleccionada.precio)
 }
 
+const checkCode = (code) => {
+  setDiscount(code);
+  if(code === "PREMIO") {
+    setPrecio(pizzaSeleccionada.precio -3)
+  }  
+}
+// En el descuento que quedé , no funciona, no he sido capaz de resolverlo
+
 
   return (
     <div>
@@ -49,7 +58,7 @@ const calcSize = (size) => {
       <input type="radio" name="rButton" id="grande" value="grande" checked={radio === "grande"} onChange={(e) => calcSize(e.target.value)}></input><label htmlFor="grande">Grande</label><br /><br />
 
       <label>Código promocional </label>
-      <input type="text"/>
+      <input type="text" onChange={(e) => checkCode(e.target.value)}/>
 
 
       <p>El precio total es {precio}</p>
