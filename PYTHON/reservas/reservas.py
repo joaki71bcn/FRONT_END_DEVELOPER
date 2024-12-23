@@ -2,23 +2,42 @@ from playwright.sync_api import sync_playwright
 from datetime import datetime, timedelta
 import time
 
-# HORARIO CUANDO SE LANZA LA APLICACION
-target_time_str = "16:02"
-target_time = datetime.strptime(target_time_str, "%H:%M").replace(
-   year=datetime.now().year,
-   month=datetime.now().month,
-   day=datetime.now().day,)
+
+# Configuramos la hora objetivo para las 00:01 AM del día siguiente
+# comentar + timedelta si queremos hacerlo el mismo dia
+target_time = datetime.now().replace(hour=12, minute=56, second=0, microsecond=0) #+ timedelta(days=1)
+
 # OBTENER HORA ACTUAL
 current_time = datetime.now()
+
 # Calcular la diferencia en segundos
 time_diff = (target_time - current_time).total_seconds()
-if time_diff > 0:
-    print(f"Esperando hasta la hora objetivo: {target_time_str}")
-    time.sleep(time_diff)
+
+# Función para convertir segundos en formato horas-minutos-segundos
+def segundos_a_hms(segundos):
+    horas = segundos // 3600
+    minutos = (segundos % 3600) // 60
+    segundos = segundos % 60
+    return f"{int(horas):02}:{int(minutos):02}:{int(segundos):02}"
+
+# Mostrar cuántos segundos faltan hasta la hora objetivo
+while time_diff > 0:
+    # Convertimos el tiempo restante a horas-minutos-segundos
+    tiempo_restante = segundos_a_hms(time_diff)
+    
+    # Imprimir en la misma línea
+    print(f"Tiempo restante: {tiempo_restante}", end='\r')  # Sobrescribe la línea
+    time.sleep(1)  # Esperar 1 segundo
+    current_time = datetime.now()
+    time_diff = (target_time - current_time).total_seconds()
+
 # Lanzar la aplicación
 print("¡Hora alcanzada! Ejecutando la aplicación...")
 
 
+
+
+# EMPIEZA EL PROGRAMA UTILIZANDO LA WEB OBJETIVO
 with sync_playwright() as p:
   browser = p.chromium.launch(headless=False) 
   page = browser.new_page() 
@@ -67,7 +86,7 @@ with sync_playwright() as p:
   print("fecha: ",target_day, target_month, target_year)
   print()
   #  HORA DEL PARTIDO "19:30-21:00"
-  target_time = "10:30-12:00"
+  target_time = "16:30-18:00"
   available_courts = []
   print("Hora: ", target_time)
   print()
@@ -84,6 +103,8 @@ with sync_playwright() as p:
   
   # POSICIONES DE LAS 4 PRIMERAS PISTAS, ELEMENTO RECT X= DENTRO DE <G>
   court_x_positions = [500,50,200,350]
+  # CONVERSION A NUMERO DE PISTA REAL
+  court_conversion = {500: 4, 50: 1, 200: 2, 350: 3}
 
   #LOCALIZA EL ELEMENTO <G> DE DE LA HORA ELEGIDA
   #TENEMOS TODAS LAS PISTAS CON LA HORA ELEGIDA
@@ -114,11 +135,24 @@ with sync_playwright() as p:
           # BOTON CARREC CONTRA SALDO
           pay_button = page.locator('input#ctl00_ContentPlaceHolderContenido_ButtonPagoSaldo')
           pay_button.click()
+          # CONFIRMACION BOTON FINAL
+          confirm_button = page.locator('input#ctl00_ContentPlaceHolderContenido_ButtonConfirmar') 
+          confirm_button.wait_for(state='visible', timeout=4000) 
+          confirm_button.click()
+          # MENSAJE DE CONFIRMACION SI LA PISTA SE HA RESERVADO
+          print(f"Pista {court_conversion[x]} reservada")
+          reservation_made = True
           break
+        # NO SE HA PODIDO RESERVAR LA PISTA ACTUAL DEL BUCLE FOR
         else: 
-           print("No hay pistas disponibles en ", x)
+           print(f"Pista {court_conversion[x]} no se ha podido hacer book.")
+  # SI NO SE HA PODIDO RESERVAR NINGUN PISTA
+  if not reservation_made:
+      print(f"No hay pistas disponibles en {target_time} en fecha: {target_day} {target_month} {target_year}")
+        
 
-  # # CHEQUEAMOS SI HAY O NO PISTAS LIBRES.
+
+
 
   
   print("El navegador permanecerá abierto. Interactúa con él manualmente.")
