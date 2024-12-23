@@ -69,7 +69,9 @@ with sync_playwright() as p:
   # ACCESS USUARI LINK PARA LOGIN ASPX
   page.click('a#linkUsuario') # hago click en el elemento a con id 
 
-  # FORMULARIO LOGIN
+  
+
+  ####################### FORMULARIO LOGIN CREDENCIALES   #######################
   # EMAIL
   email_input = page.locator('input#ctl00_ContentPlaceHolderContenido_Login1_UserName')
   email_input.wait_for(state='visible', timeout=4000)
@@ -80,6 +82,9 @@ with sync_playwright() as p:
   # BOTON ACEPTAR
   form_button = page.locator('input#ctl00_ContentPlaceHolderContenido_Login1_LoginButton')
   form_button.click()
+  ####################### FORMULARIO LOGIN CREDENCIALES   #######################
+
+
  
   # YA ESTAMOS LOGADOS
   # SELECCION DE LLOGUER DE PISTA
