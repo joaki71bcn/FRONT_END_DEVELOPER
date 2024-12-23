@@ -1,4 +1,23 @@
 from playwright.sync_api import sync_playwright
+from datetime import datetime, timedelta
+import time
+
+# HORARIO CUANDO SE LANZA LA APLICACION
+target_time_str = "16:02"
+target_time = datetime.strptime(target_time_str, "%H:%M").replace(
+   year=datetime.now().year,
+   month=datetime.now().month,
+   day=datetime.now().day,)
+# OBTENER HORA ACTUAL
+current_time = datetime.now()
+# Calcular la diferencia en segundos
+time_diff = (target_time - current_time).total_seconds()
+if time_diff > 0:
+    print(f"Esperando hasta la hora objetivo: {target_time_str}")
+    time.sleep(time_diff)
+# Lanzar la aplicación
+print("¡Hora alcanzada! Ejecutando la aplicación...")
+
 
 with sync_playwright() as p:
   browser = p.chromium.launch(headless=False) 
@@ -42,13 +61,13 @@ with sync_playwright() as p:
   #
   #
   # VARIABLES PARA SELECCIONAR UNA FECHA CONCRETA
-  target_day = "26"
+  target_day = "30"
   target_month = "11"  # November (0-indexed, so 11 is December)
   target_year = "2024"
   print("fecha: ",target_day, target_month, target_year)
   print()
   #  HORA DEL PARTIDO "19:30-21:00"
-  target_time = "18:00-19:30"
+  target_time = "10:30-12:00"
   available_courts = []
   print("Hora: ", target_time)
   print()
@@ -64,7 +83,7 @@ with sync_playwright() as p:
   page.wait_for_timeout(4000)
   
   # POSICIONES DE LAS 4 PRIMERAS PISTAS, ELEMENTO RECT X= DENTRO DE <G>
-  court_x_positions = [350,200,50,500]
+  court_x_positions = [500,50,200,350]
 
   #LOCALIZA EL ELEMENTO <G> DE DE LA HORA ELEGIDA
   #TENEMOS TODAS LAS PISTAS CON LA HORA ELEGIDA
