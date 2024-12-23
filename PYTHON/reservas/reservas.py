@@ -73,10 +73,10 @@ with sync_playwright() as p:
   # EMAIL
   email_input = page.locator('input#ctl00_ContentPlaceHolderContenido_Login1_UserName')
   email_input.wait_for(state='visible', timeout=4000)
-  email_input.fill('joaquinagras@gmail.com')
+  email_input.fill('@gmail.com')
   # PASSWORD
   pwd_input = page.locator('input#ctl00_ContentPlaceHolderContenido_Login1_Password')
-  pwd_input.fill('Oylo2022')
+  pwd_input.fill('2022')
   # BOTON ACEPTAR
   form_button = page.locator('input#ctl00_ContentPlaceHolderContenido_Login1_LoginButton')
   form_button.click()
