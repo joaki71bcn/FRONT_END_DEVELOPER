@@ -2,16 +2,33 @@ from playwright.sync_api import sync_playwright
 from datetime import datetime, timedelta
 import time
 
+#
+################## SELECCION (VARIABLES) DIA Y HORA RESERVA    #######################
+target_day = "28"
+target_month = "11"  # November (0-indexed, so 11 is December)
+target_year = "2024"
+print("Fecha: ",target_day, int(target_month) +1, target_year)
+print()
+#  HORA DEL PARTIDO "19:30-21:00"
+target_time = "10:00-11:30"
+available_courts = []
+print("Hora: ", target_time)
+print()
+################## SELECCION (VARIABLES) DIA Y HORA RESERVA    #######################
 
+
+
+
+################    BLOQUE DE HORA PARA LANZAMIENTO DE APLICACION    ###################
 # Configuramos la hora objetivo para las 00:01 AM del día siguiente
 # comentar + timedelta si queremos hacerlo el mismo dia
-target_time = datetime.now().replace(hour=12, minute=56, second=0, microsecond=0) #+ timedelta(days=1)
+start_time = datetime.now().replace(hour=12, minute=56, second=0, microsecond=0) #+ timedelta(days=1)
 
 # OBTENER HORA ACTUAL
 current_time = datetime.now()
 
 # Calcular la diferencia en segundos
-time_diff = (target_time - current_time).total_seconds()
+time_diff = (start_time - current_time).total_seconds()
 
 # Función para convertir segundos en formato horas-minutos-segundos
 def segundos_a_hms(segundos):
@@ -33,6 +50,7 @@ while time_diff > 0:
 
 # Lanzar la aplicación
 print("¡Hora alcanzada! Ejecutando la aplicación...")
+################    BLOQUE DE HORA PARA LANZAMIENTO DE APLICACION    ###################
 
 
 
@@ -43,7 +61,6 @@ with sync_playwright() as p:
   page = browser.new_page() 
   page.goto("https://padel7santmarti.com/#1") 
  
-
   # COOKIES INICIALES - REBUTJAR
   accept_button = page.locator('input#ButtonPermitirNecesarios') 
   accept_button.wait_for(state='visible', timeout=4000) 
@@ -78,21 +95,6 @@ with sync_playwright() as p:
   date_calendar.click()
   #
   #
-  #
-  # VARIABLES PARA SELECCIONAR UNA FECHA CONCRETA
-  target_day = "30"
-  target_month = "11"  # November (0-indexed, so 11 is December)
-  target_year = "2024"
-  print("fecha: ",target_day, target_month, target_year)
-  print()
-  #  HORA DEL PARTIDO "19:30-21:00"
-  target_time = "16:30-18:00"
-  available_courts = []
-  print("Hora: ", target_time)
-  print()
-  #
-  #
-  #
   # SELECTOR PARA LA FECHA
   date_selector = f'td[data-month="{target_month}"][data-year="{target_year}"] a:has-text("{target_day}")'
   page.wait_for_timeout(2000)
@@ -112,13 +114,14 @@ with sync_playwright() as p:
   print("LOCATOR HORARIOS - court_slot :",court_slot)
   print()
 
-  # BUCLE POR CADA PISTA [350,200,50,500]
+  reservation_made = False
+  # BUCLE POR CADA PISTA [500,50,200,350]
   for x in court_x_positions:
         button = court_slot.locator(f'rect[x="{x}"].buttonHora') 
         if button.count() > 0: # Verificamos si existe al menos un elemento
           print("LOCATOR BOTONES RESERVA POR : ",x , button)
           button.first.click() 
-          print("PISTA LIBRE: ", button)
+          print("PISTA LIBRE: ", court_conversion[x])
           # CLICK EN VENTANA DE EMERGENTE CON POLITICA DE RESERVA CHECKBOX
           checkbox = page.locator('input#terminos')
           checkbox.wait_for(state='visible', timeout=3000)
@@ -136,6 +139,7 @@ with sync_playwright() as p:
           pay_button = page.locator('input#ctl00_ContentPlaceHolderContenido_ButtonPagoSaldo')
           pay_button.click()
           # CONFIRMACION BOTON FINAL
+          page.wait_for_timeout(4000)
           confirm_button = page.locator('input#ctl00_ContentPlaceHolderContenido_ButtonConfirmar') 
           confirm_button.wait_for(state='visible', timeout=4000) 
           confirm_button.click()
@@ -148,15 +152,10 @@ with sync_playwright() as p:
            print(f"Pista {court_conversion[x]} no se ha podido hacer book.")
   # SI NO SE HA PODIDO RESERVAR NINGUN PISTA
   if not reservation_made:
-      print(f"No hay pistas disponibles en {target_time} en fecha: {target_day} {target_month} {target_year}")
-        
-
-
-
-
-  
+      print(f"No hay pistas disponibles en {target_time} en fecha: {target_day} {int(target_month) +1} {target_year}")
+         
   print("El navegador permanecerá abierto. Interactúa con él manualmente.")
-  page.wait_for_timeout(15000)
+  page.wait_for_timeout(5000)
 
 
         
