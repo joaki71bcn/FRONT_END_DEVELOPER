@@ -156,8 +156,17 @@ with sync_playwright() as p:
           # checkbox_book.wait_for(state='visible', timeout=4000) 
           checkbox_book.check()
           print("Checkbox condiciones legales clicado")
+          # INFORMAMOS DEL PRECIO
+          span_price = page.locator('span#ctl00_ContentPlaceHolderContenido_LabelPrecioTotalValor')
+          price = span_price.text_content()  # Extract the text content
+          print(f"Precio de la pista: {price.strip()}") 
           # BOTON CARREC CONTRA SALDO
           pay_button = page.locator('input#ctl00_ContentPlaceHolderContenido_ButtonPagoSaldo')
+          # COMPROBACION DE SI EL BOTON DE CARREC CONTRA SALDO ESTA HABILITADO, SI HAY SALDO
+          if not pay_button.is_enabled():  # Button is disabled
+              print("No tienes saldo, saliendo de la aplicación.")
+              browser.close()  # Close the browser
+              exit()  # Exit the script
           pay_button.click()
           # CONFIRMACION BOTON FINAL
           page.wait_for_timeout(4000)
