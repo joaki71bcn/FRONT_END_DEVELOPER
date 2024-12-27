@@ -20,7 +20,7 @@ target_year = "2024"
 print("Fecha: ",target_day, int(target_month) +1, target_year)
 print()
 #  HORA DEL PARTIDO "19:30-21:00"
-target_time = "16:30-18:00"
+target_time = "18:00-19:30"
 available_courts = []
 print("Hora: ", target_time)
 print()
@@ -29,7 +29,7 @@ print()
 ################    BLOQUE DE HORA PARA LANZAMIENTO DE APLICACION    ###################
 # Configuramos la hora objetivo para las 00:01 AM del día siguiente
 # comentar + timedelta si queremos hacerlo el mismo dia
-start_time = datetime.now().replace(hour=10, minute=25, second=0, microsecond=0) #+ timedelta(days=1)
+start_time = datetime.now().replace(hour=11, minute=45, second=0, microsecond=0) #+ timedelta(days=1)
 
 # OBTENER HORA ACTUAL
 current_time = datetime.now()
@@ -53,7 +53,7 @@ while time_diff > 0:
     print(f"Tiempo restante: {tiempo_restante}", end='\r')  # Sobrescribe la línea
     time.sleep(1)  # Esperar 1 segundo
     current_time = datetime.now()
-    time_diff = (target_time - current_time).total_seconds()
+    time_diff = (start_time - current_time).total_seconds()
 
 # Lanzar la aplicación
 print("¡Hora alcanzada! Ejecutando la aplicación...")
@@ -64,7 +64,7 @@ print("¡Hora alcanzada! Ejecutando la aplicación...")
 
 # EMPIEZA EL PROGRAMA UTILIZANDO LA WEB OBJETIVO
 with sync_playwright() as p:
-  browser = p.chromium.launch(headless=False) 
+  browser = p.chromium.launch(headless=True) 
   page = browser.new_page() 
   page.goto("https://padel7santmarti.com/#1") 
  
@@ -141,6 +141,7 @@ with sync_playwright() as p:
           button.first.click() 
           print("Click ok en pista", court_conversion[x],"libre")
           # CLICK EN VENTANA DE EMERGENTE CON POLITICA DE RESERVA CHECKBOX
+          page.wait_for_timeout(3000)
           checkbox = page.locator('input#terminos')
           checkbox.wait_for(state='visible', timeout=3000)
           checkbox.check()
@@ -155,7 +156,7 @@ with sync_playwright() as p:
           # NO HA FUNCONADO CON WAIT_FOR, LO DEJO CON EL TIMEOUT DE ARRIBA
           # checkbox_book.wait_for(state='visible', timeout=4000) 
           checkbox_book.check()
-          print("Checkbox condiciones legales clicado")
+          print("Checkbox condiciones legales marcado")
           # INFORMAMOS DEL PRECIO
           span_price = page.locator('span#ctl00_ContentPlaceHolderContenido_LabelPrecioTotalValor')
           price = span_price.text_content()  # Extract the text content
