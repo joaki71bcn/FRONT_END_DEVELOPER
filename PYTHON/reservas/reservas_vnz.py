@@ -18,8 +18,8 @@ target_day = "30"
 target_month = "11"  # November (0-indexed, so 11 is December)
 target_year = "2024"
 print("Fecha: ",target_day, int(target_month) +1, target_year)
-#  HORA DEL PARTIDO "19:30-21:00"
-target_time = "18:00-19:30"
+#  HORA DEL PARTIDO FORMATO "11:00" O "11:30"
+target_time = "11:00"
 available_courts = []
 print("Hora: ", target_time)
 
@@ -63,9 +63,9 @@ print("¡Hora alcanzada! Ejecutando la aplicación...")
 
 # EMPIEZA EL PROGRAMA UTILIZANDO LA WEB OBJETIVO
 with sync_playwright() as p:
-  browser = p.chromium.launch(headless=True) 
+  browser = p.chromium.launch(headless=False) 
   page = browser.new_page() 
-  page.goto("https://padel7santmarti.com/#1") 
+  page.goto("https://www.ipadelbarcelona.com/") 
  
   # COOKIES INICIALES - REBUTJAR
   accept_button = page.locator('input#ButtonPermitirNecesarios') 
@@ -95,12 +95,9 @@ with sync_playwright() as p:
 
  
   # YA ESTAMOS LOGADOS
-  # SELECCION DE LLOGUER DE PISTA
-  p7_glorias_link = page.locator('a.parent:has(span:has-text("P7 Glòries"))')
-  p7_glorias_link.hover()
-  page.wait_for_selector('a[href="../Booking/Grid.aspx?id=8"]')
-  reserves_link = page.locator('a[href="../Booking/Grid.aspx?id=8"]').nth(0)  # 0 PARA EL INDICE DE ELEMENTOS IGUALES, ME DABA ERROR PORQUE HABIA OTRO IGUAL
-  reserves_link.click()
+  # SELECCION DE RESERVAS
+  pvnz_link = page.locator('a[href="/Booking/Grid.aspx"] span', has_text="Reservas")
+  pvnz_link.click()
   print("click en reservas ok")
   page.wait_for_timeout(4000) # SI NO PONIA ESTE TIMEOUT NO DABA TIEMPO A CARGAR EL CALENDARIO
 
@@ -120,20 +117,20 @@ with sync_playwright() as p:
   page.wait_for_timeout(4000)
   
   # POSICIONES DE LAS 4 PRIMERAS PISTAS, ELEMENTO RECT X= DENTRO DE <G>
-  court_x_positions = [500,50,200,350]
+  court_x_positions = [50,410,290,170,530]
   # CONVERSION A NUMERO DE PISTA REAL
-  court_conversion = {500: 4, 50: 1, 200: 2, 350: 3}
+  court_conversion = {50: 1,410: 4,290 :3 ,170: 2,200: 2,530: 5}
 
   #LOCALIZA EL ELEMENTO <G> DE DE LA HORA ELEGIDA
   #TENEMOS TODAS LAS PISTAS CON LA HORA ELEGIDA
-  court_slot = page.locator(f'g[time="{target_time}"]')
+  court_slot = page.locator(f'g[datahora="{target_time}"]')
   print("LOCATOR HORARIOS - court_slot :",court_slot)
   print()
 
   reservation_made = False
-  # BUCLE POR CADA PISTA [500,50,200,350]
+  # BUCLE POR CADA PISTA {50: 1,410: 4,290 :3 ,170: 2,200: 2,530: 5}
   for x in court_x_positions:
-        button = court_slot.locator(f'rect[x="{x}"].buttonHora[habilitado="true"]') 
+        button = court_slot.locator(f'rect[x="{x}"][class="subDivision plantilla buttonHora"][habilitado="true"]') 
         print("Para la pista",court_conversion[x],"hay:",button.count(),"libre")
         if button.count() > 0: # Verificamos si existe al menos un elemento
           print("LOCATOR BOTONES RESERVA POR:",x , button)
